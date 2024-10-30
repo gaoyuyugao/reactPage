@@ -1,7 +1,7 @@
 // src/components/Header.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+// import '../styles/Header.css';
 function Header({ isLoggedIn, onLogout }) {
   const navigate = useNavigate();
 
@@ -15,14 +15,15 @@ function Header({ isLoggedIn, onLogout }) {
 
   return (
     <header style={styles.header}>
-      <h1 style={styles.title}>Your Name's Blog</h1>
+      <h1 style={styles.title} onClick={() => navigate('/')}>GaoYu's Blog</h1>
       <nav style={styles.nav}>
-        <a href="#home" style={styles.navLink}>Home</a>
-        <a href="#about" style={styles.navLink}>About</a>
-        <a href="#articles" style={styles.navLink}>Articles</a>
-        <a href="#contact" style={styles.navLink}>Contact</a>
+        <button onClick={() => navigate('/')} style={styles.navLink}>主页</button>
+        <button onClick={() => navigate('/articles')} style={styles.navLink}>留言</button>
+        <button onClick={() => navigate('/about')} style={styles.navLink}>关于</button>
+        <button onClick={() => navigate('/self-introduction')} style={styles.navLink}>自我介绍</button>
+        <button onClick={() => navigate('/projects')} style={styles.navLink}>项目</button>
       </nav>
-      <button onClick={handleLoginClick}>
+      <button onClick={handleLoginClick} style={styles.loginButton}>
         {isLoggedIn ? 'Logout' : 'Login'}
       </button>
     </header>
@@ -38,7 +39,9 @@ const styles = {
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   title: {
+    color: '#fff',
     fontSize: '1.5em',
+    cursor: 'pointer',
   },
   nav: {
     display: 'flex',
@@ -46,7 +49,18 @@ const styles = {
   },
   navLink: {
     color: '#fff',
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
+    fontSize: '1em',
     textDecoration: 'none',
+  },
+  loginButton: {
+    backgroundColor: 'transparent',
+    border: 'none',
+    color: '#fff',
+    cursor: 'pointer',
+    fontSize: '1em',
   }
 };
 

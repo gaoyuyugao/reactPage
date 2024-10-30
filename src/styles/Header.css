@@ -1,0 +1,8 @@
+/* 将 Header 设置为固定在顶部 */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+  }
